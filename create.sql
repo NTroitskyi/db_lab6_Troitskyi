@@ -1,0 +1,31 @@
+CREATE TABLE PART
+(
+  id_part SERIAL NOT NULL,
+  part_num INT NOT NULL,
+  PRIMARY KEY (id_part)
+);
+
+CREATE TABLE STAND
+(
+  id_stand SERIAL NOT NULL,
+  stand_name VARCHAR NOT NULL,
+  PWR VARCHAR(4) NOT NULL,
+  SPD VARCHAR(4) NOT NULL,
+  RNG VARCHAR(4) NOT NULL,
+  PER VARCHAR(4) NOT NULL,
+  PRC VARCHAR(4) NOT NULL,
+  DEV VARCHAR(4) NOT NULL,
+  PRIMARY KEY (id_stand)
+);
+
+CREATE TABLE STAND_USER
+(
+  id_user SERIAL NOT NULL,
+  user_name VARCHAR NOT NULL,
+  id_stand INT NOT NULL,
+  id_part INT NOT NULL,
+  PRIMARY KEY (id_user),
+  FOREIGN KEY (id_stand) REFERENCES STAND(id_stand),
+  FOREIGN KEY (id_part) REFERENCES PART(id_part)
+);
+
